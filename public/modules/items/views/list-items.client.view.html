@@ -1,0 +1,24 @@
+<section data-ng-controller="ItemsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Items</h1>
+
+    </div>
+    <div class="list-group">
+       
+        <a data-ng-repeat="item in items" data-ng-href="#!/items/{{item._id}}" class="list-group-item">
+            <div class= "flex">
+                <div class= "listitem"><strong>Category: </strong>{{item.category}}</div>
+                <div class= "listitem"><strong>Item Name: </strong>{{item.itemName}}</div>
+                <div class= "listitem"><strong>Quantity of item purchased: </strong>{{item.itemQuantity}}</div>
+            </div>
+				<!-- Posted on
+				<span data-ng-bind="item.created | date:'medium'"></span> -->
+				Sold by
+				<span data-ng-bind="item.user.displayName"></span>
+			<h4 class="list-group-item-heading" data-ng-bind="item.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!items.$resolved || items.length">
+    	No Items yet, why don't you <a href="/#!/items/create">create one</a>?
+    </div>
+</section>

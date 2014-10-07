@@ -1,0 +1,20 @@
+option.itemadd{
+	font-family: arial, sans-serif;
+	color: red;
+}
+
+div.flex {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -o-flex;
+	-webkit-justify-content: space-between;
+	width: 70%;
+	float: right;
+	/*background-color: red;*/
+}
+
+/*div.listitem {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -o-flex;
+}*/
