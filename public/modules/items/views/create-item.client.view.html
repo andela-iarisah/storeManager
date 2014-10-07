@@ -1,0 +1,47 @@
+<section data-ng-controller="ItemsController">
+    <div class="page-header">
+        <h1>New Item</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="create()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="name">Category</label>
+                    <div class="controls">
+                        <select data-ng-model= "category">
+                            <option class= "itemadd">Fashion</option>
+                            <option class= "itemadd">Mobile Phones</option>
+                            <option class= "itemadd">Computing</option>
+                            <option class= "itemadd">Cameras & Electronics</option>
+                            <option class= "itemadd">Games & Consoles</option>
+                            <option class= "itemadd">Home & Office</option>
+                            <option class= "itemadd">Health & Beauty</option>
+                            <option class= "itemadd">Watches & Sunglasses</option>
+                            <option class= "itemadd">Baby, Toys & Kids</option>
+                            <option class= "itemadd">Books, Movies & Music</option>
+                            <option class= "itemadd">Other Categories</option>
+                        </select>
+                    </div>
+                    <label class="control-label" for="name">Item Name</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="name" id="name" class="form-control" placeholder="Name" required>
+                    </div>
+                    <label class="control-label" for="itemQty">Item Quantity</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="quantity" id="itemQty" class="form-control" placeholder="Quantity" required>
+                    </div>
+                    <label class="control-label" for="minQty">Minimum Quantity</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="minQty" id="minQty" class="form-control" placeholder="Minimum Quantity" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default">
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</section>

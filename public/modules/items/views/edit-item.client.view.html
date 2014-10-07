@@ -1,0 +1,52 @@
+<section data-ng-controller="ItemsController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h1>Edit Item</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="update()" novalidate>
+            <fieldset>
+                 <div class="form-group">
+                    <label class="control-label" for="name">Category</label>
+                    <div class="controls">
+                        <select  class= "itemadd" data-ng-model= "item.category">
+                            <option selected>--Select One--</option>
+                            <option>Fashion</option>
+                            <option>Mobile Phones</option>
+                            <option>Computing</option>
+                            <option>Cameras &amp; Electronics</option>
+                            <option>Games &amp; Consoles</option>
+                            <option>Home &amp; Office</option>
+                            <option>Health &amp; Beauty</option>
+                            <option>Watches &amp; Sunglasses</option>
+                            <option>Baby, Toys &amp; Kids</option>
+                            <option>Books, Movies &amp; Music</option>
+                            <option>Other Categories</option>
+                        </select>
+                    </div>
+                    <label class="control-label" for="name">Item Name</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="item.itemName"  id="name" class="form-control" required>
+                    </div>
+                    <label class="control-label" for="itemQty">Item Quantity</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="item.itemQuantity" id="itemQty" class="form-control" required>
+                    </div>
+                    <label class="control-label" for="minQty">Minimum Quantity</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="item.minItemQuantity" id="minQty" class="form-control" required>
+                    </div>
+                    <label class="control-label" for="addedQty">Quantity to add</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="item.minItemQuantity" id="minQty" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</section>
