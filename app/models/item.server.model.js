@@ -42,13 +42,10 @@ var ItemSchema = new Schema({
 	addedQuantity: {
 		type: Number,
 		default: 0
-<<<<<<< HEAD
-=======
 	},
 	soldQuantity: {
 		type: Number,
 		default: 0
->>>>>>> gh-pages
 	}
 });
 

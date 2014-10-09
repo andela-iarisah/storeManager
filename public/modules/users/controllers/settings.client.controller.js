@@ -68,8 +68,4 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 			});
 		};
 	}
-<<<<<<< HEAD
 ]);
-=======
-]);
->>>>>>> gh-pages
