@@ -64,26 +64,15 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 					soldQuantity: this.qtySold
 				});
 				var addedQty = parseInt($scope.newAdd, 10);
-				console.log(addedQty);
-				//itemResource.addedQuantity = 0;
-				// item.itemQuantity += addedQty 
-				console.log(item.itemQuantity);
 				item.itemQuantity += addedQty;
-				console.log(item.itemQuantity);
+				item.addedQuantity += addedQty;
 			}
 			
 			//To remove stock from existing supplies
 			else{
-				// console.log(item.itemQuantity);
-				// console.log(addedQty);
-				// console.log($scope.item);
-
-				
 				var soldQty = parseInt($scope.itemQty, 10);
-				// console.log(soldQty);
-				// console.log($scope.item);
 				item.itemQuantity -= soldQty;
-				
+				item.soldQuantity += soldQty;
 				$scope.itemQty = '';
 			}
 		};
