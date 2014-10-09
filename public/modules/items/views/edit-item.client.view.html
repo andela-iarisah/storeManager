@@ -3,7 +3,7 @@
         <h1>Edit Item</h1>
     </div>
     <div class="col-md-12">
-        <form class="form-horizontal" data-ng-submit="update()" novalidate>
+        <form class="form-horizontal" data-ng-submit="update(item, req)" novalidate>
             <fieldset>
                  <div class="form-group">
                     <label class="control-label" for="name">Category</label>
@@ -37,15 +37,15 @@
                     </div>
                     <label class="control-label" for="addedQty">Quantity to add</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="item.minItemQuantity" id="minQty" class="form-control" required>
+                        <input type="text" data-ng-model= "newAdd" id="minQty" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Update" class="btn btn-default">
                 </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
             </fieldset>
         </form>
     </div>

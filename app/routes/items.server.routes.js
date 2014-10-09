@@ -11,7 +11,11 @@ module.exports = function(app) {
 
 	app.route('/items/:itemId')
 		.get(items.read)
+<<<<<<< HEAD
 		.put(users.requiresLogin, items.hasAuthorization, items.update)
+=======
+		.put(users.requiresLogin, items.update)
+>>>>>>> gh-pages
 		.delete(users.requiresLogin, items.hasAuthorization, items.delete);
 
 	// Finish by binding the Item middleware
