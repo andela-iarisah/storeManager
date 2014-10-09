@@ -13,7 +13,8 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 				itemName: this.name,
 				itemQuantity: this.quantity,
 				minItemQuantity: this.minQty,
-				addedQuantity: this.addQty
+				addedQuantity: this.addQty,
+				soldQuantity: this.qtySold
 			});
 
 			// Redirect after save
@@ -27,12 +28,6 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 			});
 		};
 
-		// $scope.increaseQuantity = function() {
-		// 	var item = $scope.item;
-		// 	item.$update(function(resp) {
-
-		// 	})
-		// }
 		// Remove existing Item
 		$scope.remove = function( item ) {
 			if ( item ) { item.$remove();
@@ -50,14 +45,51 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 		};
 
 		// Update existing Item
-		$scope.update = function() {
-			var item = $scope.item ;
-
+		$scope.update = function(item, req) {
+			
 			item.$update(function() {
 				$location.path('items/' + item._id);
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
+			
+			//To add stock to existing supply
+			if ($scope.newAdd) {
+				var itemResource = new Items ({
+					_id: this.identification,
+					category: this.category,
+					itemName: this.name,
+					itemQuantity: this.quantity,
+					minItemQuantity: this.minQty,
+					addedQuantity: this.addQty,
+					soldQuantity: this.qtySold
+				});
+				var item = item;
+				console.log(item);
+				var addedQty = parseInt($scope.newAdd, 10);
+				console.log(addedQty);
+				//itemResource.addedQuantity = 0;
+				// item.itemQuantity += addedQty 
+				console.log(item.itemQuantity);
+				item.itemQuantity += addedQty;
+				console.log(item.itemQuantity);
+			}
+
+			else{
+				// console.log(item.itemQuantity);
+				// console.log(addedQty);
+				// console.log($scope.item);
+
+				//To remove stock from existing supplies
+
+				var soldQty = parseInt($scope.itemQty, 10);
+				// console.log(soldQty);
+				// console.log($scope.item);
+				item.itemQuantity -= soldQty;
+				
+				$scope.itemQty = '';
+			}
+			
 		};
 
 		// Find a list of Items

@@ -37,6 +37,9 @@ exports.read = function(req, res) {
  * Update a Item
  */
 exports.update = function(req, res) {
+	console.log('update item api');
+	console.log(req.item);
+	console.log('item update check done');
 	var item = req.item ;
 
 	item = _.extend(item , req.body);

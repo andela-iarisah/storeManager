@@ -5,7 +5,9 @@
 	<div class= "flex">
                 <div class= "listitem"><strong>Category: </strong>{{item.category}}</div>
                 <div class= "listitem"><strong>Item Name: </strong>{{item.itemName}}</div>
-                <div class= "listitem"><strong>Quantity of item purchased: </strong>{{item.itemQuantity}}</div>
+                <div class= "listitem"><strong>Quantity of item remaining: </strong>{{item.itemQuantity}}</div>
+                <input type= "text" size= "3" data-ng-model= "itemQty">
+                <input type= "submit" value= "Sold" ng-click= "update(item, req)">
             </div>
 				<!-- Posted on
 				<span data-ng-bind="item.created | date:'medium'"></span> -->
@@ -13,7 +15,7 @@
 				<span data-ng-bind="item.user.displayName"></span>
 			<h4 class="list-group-item-heading" data-ng-bind="item.name"></h4>
 	<div class="pull-right" data-ng-show="authentication.user._id == item.user._id">
-		<a class="btn btn-primary" href="/#!/items/{{item._id}}/edit" ng-click= "">
+		<a class="btn btn-primary" href="/#!/items/{{item._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>
 		<a class="btn btn-primary" data-ng-click="remove();">

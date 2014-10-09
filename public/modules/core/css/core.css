@@ -23,8 +23,9 @@
 		    CUSTOM CSS
 ************************************/
 
-div.signinbox {
+/*div.signinbox {
 	height: 300px;
-	width: 400px;
+	width: 300px;
 	border: 1px solid black;
-}
+	margin: 0 auto;
+}*/

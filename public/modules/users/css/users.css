@@ -14,3 +14,35 @@
 	right: 10px;
 	position: absolute;
 }
+
+
+
+
+div.wrap {
+	height: 300px;
+	margin-top: 50px;
+	background-color: rgb(240, 240, 240);
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+	box-shadow: 0 0 2px black;
+}
+
+#username, #password {
+	width: 75%;
+	margin: 0 auto;
+}
+
+#username {
+	margin-top: 70px;
+}
+
+#password {
+	margin-top: -15px;
+}
+
+button.width {
+	display: block;
+	width: 75%;
+	margin: 0 auto;
+}
