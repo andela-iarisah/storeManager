@@ -4,17 +4,31 @@ option.itemadd{
 }
 
 div.flex {
-	display: -webkit-flex;
+	/*display: -webkit-flex;
 	display: -moz-flex;
 	display: -o-flex;
-	-webkit-justify-content: space-between;
-	width: 70%;
-	float: right;
+	-webkit-justify-content: space-between;*/
+	width: 100%;
+	/*float: left;*/
 	/*background-color: red;*/
 }
 
-/*div.listitem {
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -o-flex;
-}*/
+div.moveup {
+	margin-top: -20px;
+}
+
+div.listitem {
+	width: 25%;
+	padding: 10px;
+	color: black;
+}
+
+input#resize {
+	width: 200px;
+	float: right;
+	margin-bottom: 20px;
+}
+
+input#btnresize {
+	margin-bottom: 20px;
+}

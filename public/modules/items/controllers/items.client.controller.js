@@ -5,6 +5,7 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 	function($scope, $stateParams, $location, Authentication, Items ) {
 		$scope.authentication = Authentication;
 
+		// item.created | date: 
 		// Create new Item
 		$scope.create = function() {
 			// Create new Item object
@@ -14,12 +15,13 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 				itemQuantity: this.quantity,
 				minItemQuantity: this.minQty,
 				addedQuantity: this.addQty,
-				soldQuantity: this.qtySold
+				soldQuantity: this.qtySold,
+				q: this.queryItem
 			});
 
 			// Redirect after save
 			item.$save(function(response) {
-				$location.path('items/' + response._id);
+				$location.path('/items');
 
 				// Clear form fields
 				$scope.name = '';
@@ -37,11 +39,12 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 						$scope.items.splice(i, 1);
 					}
 				}
-			} else {
+			}
+			else {
 				$scope.item.$remove(function() {
 					$location.path('items');
 				});
-			}
+			}	
 		};
 
 		// Update existing Item
@@ -52,34 +55,49 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 				$scope.error = errorResponse.data.message;
 			});
 			
+			//tdrsea vzc bfdB 
+			if ($scope.newAdd > 0 || $scope.itemQty > 0) {
 			//To add stock to existing supply
-			if ($scope.newAdd) {
-				var itemResource = new Items ({
-					_id: this.identification,
-					category: this.category,
-					itemName: this.name,
-					itemQuantity: this.quantity,
-					minItemQuantity: this.minQty,
-					addedQuantity: this.addQty,
-					soldQuantity: this.qtySold
-				});
-				var addedQty = parseInt($scope.newAdd, 10);
-				item.itemQuantity += addedQty;
-				item.addedQuantity += addedQty;
-			}
+				if ($scope.newAdd) {
+					var itemResource = new Items ({
+						_id: this.identification,
+						category: this.category,
+						itemName: this.name,
+						itemQuantity: this.quantity,
+						minItemQuantity: this.minQty,
+						addedQuantity: this.addQty,
+						soldQuantity: this.qtySold,
+						q: this.queryItem
+					});
+					var addedQty = parseInt($scope.newAdd, 10);
+					item.itemQuantity += addedQty;
+					item.addedQuantity += addedQty;
+				}
 			
 			//To remove stock from existing supplies
-			else{
-				var soldQty = parseInt($scope.itemQty, 10);
-				item.itemQuantity -= soldQty;
-				item.soldQuantity += soldQty;
-				$scope.itemQty = '';
+				else if ($scope.itemQty){
+					var soldQty = parseInt($scope.itemQty, 10);
+					item.itemQuantity -= soldQty;
+					item.soldQuantity += soldQty;
+					$scope.itemQty = '';
+				}
+
 			}
+			else {
+				console.log('You can not do that in my design!');
+				return item.$update(errorResponse);
+			}
+			// $scope.total = [];
+			// for (var i = 0; i < ; i++) {
+			// 	item.
+			// }
+			// console.log(item)
 		};
 
 		// Find a list of Items
 		$scope.find = function() {
 			$scope.items = Items.query();
+			
 		};
 
 		// Find existing Item
@@ -87,6 +105,14 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 			$scope.item = Items.get({ 
 				itemId: $stateParams.itemId
 			});
+		};
+
+		$scope.searchList = function() {
+			var search = this.queryItem;
+			console.log(search)
+			// var result = db.inventory.find({itemName, search})
+			this.queryItem = '';
+			// console.log(result);
 		};
 	}
 ]);
