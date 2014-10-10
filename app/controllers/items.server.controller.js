@@ -106,3 +106,14 @@ exports.hasAuthorization = function(req, res, next) {
 	}
 	next();
 };
+exports.searchItems = function(req, res) { 
+	Item.find().sort('-itemName').populate('user', 'displayName').exec(function(err, items) {
+		if (err) {
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			res.jsonp(items);
+		}
+	});
+};

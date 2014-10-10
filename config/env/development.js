@@ -6,18 +6,18 @@ module.exports = {
 		title: 'Item - Development Environment'
 	},
 	facebook: {
-		clientID: process.env.FACEBOOK_ID || 'APP_ID',
-		clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+		clientID: process.env.FACEBOOK_ID || '1488179444777107',
+		clientSecret: process.env.FACEBOOK_SECRET || '9e04619506db7018b13456e1be411116',
 		callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	},
 	twitter: {
-		clientID: process.env.TWITTER_KEY || 'CONSUMER_KEY',
-		clientSecret: process.env.TWITTER_SECRET || 'CONSUMER_SECRET',
+		clientID: process.env.TWITTER_KEY || 'irQugdBwZQNeE7fXCGOMyeGd1',
+		clientSecret: process.env.TWITTER_SECRET || 'hVKjCiByh0PuYswzydHVY6l0IkTuWVfCBwjJe2s17xGKzugqeg',
 		callbackURL: 'http://localhost:3000/auth/twitter/callback'
 	},
 	google: {
-		clientID: process.env.GOOGLE_ID || 'APP_ID',
-		clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
+		clientID: process.env.GOOGLE_ID || '303824372590-0bc1or9b1rsvm7o3lc1f6m60a8saj52a.apps.googleusercontent.com',
+		clientSecret: process.env.GOOGLE_SECRET || 'EZQI7TdHzyURPsDxROY6J7tw',
 		callbackURL: 'http://localhost:3000/auth/google/callback'
 	},
 	linkedin: {

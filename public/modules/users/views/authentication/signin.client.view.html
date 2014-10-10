@@ -1,5 +1,5 @@
-<section class="row" data-ng-controller="AuthenticationController">
-	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2 wrap">
+<section class="row group" data-ng-controller="AuthenticationController">
+	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2 wrap pull-right">
 		<form data-ng-submit="signin()" class="signin form-horizontal" autocomplete="off">
 			<fieldset>
 				<div>
@@ -12,12 +12,34 @@
 						<input type="password" id="password" name="password" class="form-control" data-ng-model="credentials.password" placeholder="Password">
 					</div>
 					<div class="text-center form-group">
-						<button type="submit" class="btn btn-primary width">Sign in</button>&nbsp; or&nbsp;
-						<a href="/#!/signup">Sign up</a>
+						<button type="submit" class="btn btn-primary width">Sign in</button>
+						<div class "forgot-password">
+							<a class= "space" href="/#!/password/forgot">Forgot your password?</a>
+						</div>&nbsp;
+						<br>
+						<div class= "surround">
+							<hr><strong class= "centralize">OR</strong> <hr>&nbsp;
+						</div>
+						<button type="submit" class="btn widthUp">
+							<a class= "spaceUp" href="/#!/signup">Create a New Account</a>
+						</button>
+						<hr class= "fullLength">
+						<div class= "writeup">
+							Sign in with using your social accounts
+							<br>
+							<a href="/auth/facebook" class="undecorated-link" target= "_blank">
+								<img src="/modules/users/img/buttons/facebook.png" class= "icon">
+							</a>
+							<a href="/auth/twitter" class="undecorated-link" target= "_blank">
+								<img src="/modules/users/img/buttons/twitter.png" class= "icon">
+							</a>
+							<a href="/auth/google" class="undecorated-link" target= "_blank">
+								<img src="/modules/users/img/buttons/google.png" class= "icon">
+							</a>
+						</div>
 					</div>
-					<div class "forgot-password">
-						<a href="/#!/password/forgot">Forgot your password?</a>
-					</div>
+					
+					
 					<div data-ng-show="error" class="text-center text-danger">
 						<strong data-ng-bind="error"></strong>
 					</div>

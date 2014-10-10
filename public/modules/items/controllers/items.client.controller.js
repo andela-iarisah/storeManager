@@ -107,12 +107,37 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 			});
 		};
 
-		$scope.searchList = function() {
-			var search = this.queryItem;
-			console.log(search)
-			// var result = db.inventory.find({itemName, search})
-			this.queryItem = '';
+		// $scope.searchList = function() {
+		
+		// 	// var search = this.queryItem;
+		// 	console.log($scope.query);
+		// 	// search = Items.query();
+		// 	// console.log(search);
+		// 	var breakDownSearch = Items.query().$promise.then(function(data) {
+		// 		var validSearch = data;
+		// 		var test = $scope.data.itemName;
+		// 		console.log(data);
+		// 		console.log(test);
+		// 		});
+
+				
+		// 		// console.log(filtered);
+		// 		// var categorySearch = breakDownSearch[0];
+		// 		// console.log(categorySearch);
+		// 		// $scope.searchBox = 
+		// 	// categorySearch: {
+		// 	// 	category: this.category
+		// 	// }
+		// 	// $scope.searchPage = Items.get({
+		// 	// 	q: $stateParams.q
+			
+		// 	// });
+		// 	// item.$save(function(response) {
+		// 	// 	$location.path('/items/:q'),
+		// 	this.queryItem = '';
+			// })
+			
 			// console.log(result);
-		};
+		// };
 	}
 ]);
