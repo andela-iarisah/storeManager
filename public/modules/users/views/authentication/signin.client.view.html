@@ -1,4 +1,10 @@
-<section class="row group" data-ng-controller="AuthenticationController">
+<div class= "home">
+	<div class= "logoname">
+		<img src= "modules/core/img/brand/icon.jpg" class= "iconresize">
+		<span class= "appname">The Store Manager</span>
+	</div>
+</div>
+<section class="row group repaint" data-ng-controller="AuthenticationController">
 	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2 wrap pull-right">
 		<form data-ng-submit="signin()" class="signin form-horizontal" autocomplete="off">
 			<fieldset>
@@ -33,18 +39,23 @@
 							<a href="/auth/twitter" class="undecorated-link" target= "_blank">
 								<img src="/modules/users/img/buttons/twitter.png" class= "icon">
 							</a>
-							<a href="/auth/google" class="undecorated-link" target= "_blank">
-								<img src="/modules/users/img/buttons/google.png" class= "icon">
-							</a>
 						</div>
-					</div>
-					
-					
+					</div>				
 					<div data-ng-show="error" class="text-center text-danger">
 						<strong data-ng-bind="error"></strong>
 					</div>
 				</div>
 			</fieldset>
 		</form>
+	</div>
+	<div class= "alignleft">
+		Join the amazing world of <strong>The Store Manager</strong> today and have yourself a thrilling adventure in inventory management
+			<ul>
+				<li>Improves accuracy of inventory orders</li>
+				<li>Improves warehouse organization</li>
+				<li>Saves time and money</li>
+				<li>Increases efficiency and productivity</li>
+				<li>Improves inventory tracking</li>
+			</ul>
 	</div>
 </section>

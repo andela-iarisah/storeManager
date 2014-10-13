@@ -2,22 +2,17 @@
     <div class="page-header">
         <h1>Items</h1>    
     </div>
-   <!--  <div class= "input-group">
-            <input type= "text" class= "form-control" id= "resize" data-ng-model= "query">
-            <span class= "input-group-btn">
-                <input type= "submit" id= "btnresize" class= "btn btn-default" data-ng-click= "searchList()">
-            </span>
-    </div> -->
+    <div class= "input-group alignright">
+            <input type= "text" class= "form-control" id= "resize" data-ng-model= "query.$" data-ng-src= "">
+            <img src= "modules/items/img/search.jpg" class= "resizeicon">
+    </div>
     <div class= "moveup"><strong>Total quantity of items in stock: </strong><!-- {{sum()}} --></div>
     <div class="list-group">
-    <div data-ng-repeat= "search in validSearch">
-        {{search.itemName | filter: query}}
-    </div>
-        <a data-ng-repeat="item in items" data-ng-href="#!/items/{{item._id}}">
+        <a data-ng-repeat="item in items | filter: query" data-ng-href="#!/items/{{item._id}}">
             <div class= "flex group">
                 <div class= "listitem pull-left"><strong>Category: </strong>{{item.category}}</div>
                 <div class= "listitem pull-left"><strong>Item Name: </strong>{{item.itemName}}</div>
-                <div class= "listitem pull-left"><strong>Quantity of item remaining: </strong>{{item.itemQuantity}}</div>
+                <div class= "listitem pull-left"><strong>Quantity of item remaining: </strong><span class= "colored" data-ng-class= "{colorChange: item.itemQuantity <= item.minItemQuantity}">{{item.itemQuantity}}</span></div>
                 <div class= "listitem pull-left"><strong>Sold on: </strong>{{item.created | date:'dd/MM/yyyy @ h:mma'}}</div>
             </div>
             <h4 class="list-group-item-heading" data-ng-bind="item.name"></h4>

@@ -11,24 +11,9 @@ module.exports = {
 		callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	},
 	twitter: {
-		clientID: process.env.TWITTER_KEY || 'irQugdBwZQNeE7fXCGOMyeGd1',
-		clientSecret: process.env.TWITTER_SECRET || 'hVKjCiByh0PuYswzydHVY6l0IkTuWVfCBwjJe2s17xGKzugqeg',
+		clientID: process.env.TWITTER_KEY || 'DLATsjwYFoH1BEL7tcPEXZXQT',
+		clientSecret: process.env.TWITTER_SECRET || '28fW4lRhtZylX2XKUhQbH7P7V3X99r1c3N8lYSb5qe6clqaByg',
 		callbackURL: 'http://localhost:3000/auth/twitter/callback'
-	},
-	google: {
-		clientID: process.env.GOOGLE_ID || '303824372590-0bc1or9b1rsvm7o3lc1f6m60a8saj52a.apps.googleusercontent.com',
-		clientSecret: process.env.GOOGLE_SECRET || 'EZQI7TdHzyURPsDxROY6J7tw',
-		callbackURL: 'http://localhost:3000/auth/google/callback'
-	},
-	linkedin: {
-		clientID: process.env.LINKEDIN_ID || 'APP_ID',
-		clientSecret: process.env.LINKEDIN_SECRET || 'APP_SECRET',
-		callbackURL: 'http://localhost:3000/auth/linkedin/callback'
-	},
-	github: {
-		clientID: process.env.GITHUB_ID || 'APP_ID',
-		clientSecret: process.env.GITHUB_SECRET || 'APP_SECRET',
-		callbackURL: 'http://localhost:3000/auth/github/callback'
 	},
 	mailer: {
 		from: process.env.MAILER_FROM || 'MAILER_FROM',

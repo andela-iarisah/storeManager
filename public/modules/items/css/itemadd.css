@@ -1,16 +1,16 @@
+section.repaint {
+	background-color: white;
+	padding: 20px 50px 20px 20px;
+	margin-top: 30px;
+}
+
 option.itemadd{
 	font-family: arial, sans-serif;
 	color: red;
 }
 
 div.flex {
-	/*display: -webkit-flex;
-	display: -moz-flex;
-	display: -o-flex;
-	-webkit-justify-content: space-between;*/
 	width: 100%;
-	/*float: left;*/
-	/*background-color: red;*/
 }
 
 div.moveup {
@@ -32,3 +32,26 @@ input#resize {
 input#btnresize {
 	margin-bottom: 20px;
 }
+
+span.colored, span.colorChange {
+	padding: 5px 15px 5px 10px;
+	color: white;
+}
+
+.colored {
+	background-color: #040;
+}
+
+.colorChange {
+	background-color: #b00;
+}
+
+img.resizeicon {
+	height: 40px;
+	width: 40px;
+}
+
+/*div.alignright {
+	position: relative;
+	left: 75%;
+}*/

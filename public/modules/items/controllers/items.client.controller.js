@@ -4,8 +4,9 @@
 angular.module('items').controller('ItemsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Items',
 	function($scope, $stateParams, $location, Authentication, Items ) {
 		$scope.authentication = Authentication;
-
-		// item.created | date: 
+		
+		$scope.errorMsg = false;
+	
 		// Create new Item
 		$scope.create = function() {
 			// Create new Item object
@@ -16,18 +17,23 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 				minItemQuantity: this.minQty,
 				addedQuantity: this.addQty,
 				soldQuantity: this.qtySold,
-				q: this.queryItem
+				q: this.query
 			});
 
-			// Redirect after save
-			item.$save(function(response) {
-				$location.path('/items');
+			if (isNaN($scope.name) && !isNaN($scope.quantity) && !isNaN($scope.minQty)) {
+				// Redirect after save
+				item.$save(function(response) {
+					$location.path('/items');
 
-				// Clear form fields
-				$scope.name = '';
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
+					// Clear form fields
+					$scope.name = '';
+				}, function(errorResponse) {
+					$scope.error = errorResponse.data.message;
+				});
+			}
+			else {
+				$scope.errorMsg = true;
+			}	
 		};
 
 		// Remove existing Item
@@ -49,14 +55,14 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 
 		// Update existing Item
 		$scope.update = function(item, req) {
-			item.$update(function() {
-				$location.path('items/' + item._id);
-			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
 			
-			//tdrsea vzc bfdB 
-			if ($scope.newAdd > 0 || $scope.itemQty > 0) {
+			if ($scope.newAdd > 0 || ($scope.itemQty > 0 && $scope.itemQty < item.itemQuantity)) {		
+				item.$update(function() {
+				$location.path('/items');
+				}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
+				});
+			
 			//To add stock to existing supply
 				if ($scope.newAdd) {
 					var itemResource = new Items ({
@@ -67,37 +73,33 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 						minItemQuantity: this.minQty,
 						addedQuantity: this.addQty,
 						soldQuantity: this.qtySold,
-						q: this.queryItem
+						q: this.query
 					});
 					var addedQty = parseInt($scope.newAdd, 10);
 					item.itemQuantity += addedQty;
 					item.addedQuantity += addedQty;
+					$scope.newAdd = '';
 				}
 			
 			//To remove stock from existing supplies
-				else if ($scope.itemQty){
+				else if ($scope.itemQty) {
 					var soldQty = parseInt($scope.itemQty, 10);
 					item.itemQuantity -= soldQty;
 					item.soldQuantity += soldQty;
 					$scope.itemQty = '';
 				}
+			}
 
-			}
 			else {
-				console.log('You can not do that in my design!');
-				return item.$update(errorResponse);
+				$scope.errorMsg = true;
+				$scope.itemQty = '';
+				$scope.newAdd = '';
 			}
-			// $scope.total = [];
-			// for (var i = 0; i < ; i++) {
-			// 	item.
-			// }
-			// console.log(item)
 		};
 
 		// Find a list of Items
 		$scope.find = function() {
 			$scope.items = Items.query();
-			
 		};
 
 		// Find existing Item
@@ -106,38 +108,5 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 				itemId: $stateParams.itemId
 			});
 		};
-
-		// $scope.searchList = function() {
-		
-		// 	// var search = this.queryItem;
-		// 	console.log($scope.query);
-		// 	// search = Items.query();
-		// 	// console.log(search);
-		// 	var breakDownSearch = Items.query().$promise.then(function(data) {
-		// 		var validSearch = data;
-		// 		var test = $scope.data.itemName;
-		// 		console.log(data);
-		// 		console.log(test);
-		// 		});
-
-				
-		// 		// console.log(filtered);
-		// 		// var categorySearch = breakDownSearch[0];
-		// 		// console.log(categorySearch);
-		// 		// $scope.searchBox = 
-		// 	// categorySearch: {
-		// 	// 	category: this.category
-		// 	// }
-		// 	// $scope.searchPage = Items.get({
-		// 	// 	q: $stateParams.q
-			
-		// 	// });
-		// 	// item.$save(function(response) {
-		// 	// 	$location.path('/items/:q'),
-		// 	this.queryItem = '';
-			// })
-			
-			// console.log(result);
-		// };
 	}
 ]);

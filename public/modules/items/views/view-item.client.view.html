@@ -13,6 +13,7 @@
 				<span data-ng-bind="item.created | date:'medium'"></span> -->
 				Sold by
 				<span data-ng-bind="item.user.displayName"></span>
+				<div data-ng-show= "errorMsg">Please type in a valid input!</div>
 			<h4 class="list-group-item-heading" data-ng-bind="item.name"></h4>
 	<div class="pull-right" data-ng-show="authentication.user._id == item.user._id">
 		<a class="btn btn-primary" href="/#!/items/{{item._id}}/edit">
