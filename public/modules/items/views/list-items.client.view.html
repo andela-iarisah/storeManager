@@ -1,15 +1,17 @@
+<div class= "logo_name">
+    <img src= "modules/core/img/brand/icon.jpg" class= "iconresize">
+    <span class= "appname">The Store Manager</span>
+</div>
 <section data-ng-controller="ItemsController" data-ng-init="find()">
-    <div class="page-header">
-        <h1>Items</h1>    
+    <div class="page-header marginUp">
+        <h1>Items in Stock</h1>    
     </div>
-    <div class= "input-group alignright">
-            <input type= "text" class= "form-control" id= "resize" data-ng-model= "query.$" data-ng-src= "">
-            <img src= "modules/items/img/search.jpg" class= "resizeicon">
+    <div class= "alignright">
+            <input type= "text" class= "form-control" id= "resize" data-ng-model= "query.$" placeholder= "Search">
     </div>
-    <div class= "moveup"><strong>Total quantity of items in stock: </strong><!-- {{sum()}} --></div>
-    <div class="list-group">
+    <div class="listedItems">
         <a data-ng-repeat="item in items | filter: query" data-ng-href="#!/items/{{item._id}}">
-            <div class= "flex group">
+            <div class= "flex group itemHover">
                 <div class= "listitem pull-left"><strong>Category: </strong>{{item.category}}</div>
                 <div class= "listitem pull-left"><strong>Item Name: </strong>{{item.itemName}}</div>
                 <div class= "listitem pull-left"><strong>Quantity of item remaining: </strong><span class= "colored" data-ng-class= "{colorChange: item.itemQuantity <= item.minItemQuantity}">{{item.itemQuantity}}</span></div>
@@ -18,7 +20,6 @@
             <h4 class="list-group-item-heading" data-ng-bind="item.name"></h4>
         </a>
     </div>
-    <div class= "searchArea"></div>
     <div class="alert alert-warning text-center" data-ng-hide="!items.$resolved || items.length">
         No Items yet, why don't you <a href="/#!/items/create">create one</a>?
     </div>

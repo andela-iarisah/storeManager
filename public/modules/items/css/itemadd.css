@@ -1,3 +1,56 @@
+/************************************
+		    HEADER CSS
+************************************/
+
+div.logo_name {
+	/*background-color: yellow;*/
+	/*margin-top: 0;*/
+	position: relative;
+	left: -135px;
+	top: -160px;
+}
+
+a.dropdown-toggle {
+	font-family: 'comic sans MS';
+	color: #a00;
+	background-color: black;
+	position: relative;
+	right: 30px;
+	top: 0;
+}
+
+nav > li.floatRight {
+	list-style: none;
+}
+
+nav > li.floatRight a {
+	list-style: none;
+	color: #a00 !important;
+	padding-top: 15px;
+	background-color: black;
+	width: 160px;
+	height: 50px;
+	margin-right: 0;
+	padding-right: 0;
+	padding-left: 20px;
+	position: absolute;
+	right: -17px;
+}
+
+nav > li.floatRight a:hover {
+	text-decoration: none;
+	background-color: white;
+	opacity: .7;
+}
+
+/************************************
+		     BODY CSS
+************************************/
+
+body {
+	overflow: hidden;
+}
+
 section.repaint {
 	background-color: white;
 	padding: 20px 50px 20px 20px;
@@ -6,7 +59,7 @@ section.repaint {
 
 option.itemadd{
 	font-family: arial, sans-serif;
-	color: red;
+	color: black;
 }
 
 div.flex {
@@ -25,7 +78,6 @@ div.listitem {
 
 input#resize {
 	width: 200px;
-	float: right;
 	margin-bottom: 20px;
 }
 
@@ -43,7 +95,7 @@ span.colored, span.colorChange {
 }
 
 .colorChange {
-	background-color: #b00;
+	background-color: #a00;
 }
 
 img.resizeicon {
@@ -51,7 +103,24 @@ img.resizeicon {
 	width: 40px;
 }
 
-/*div.alignright {
-	position: relative;
-	left: 75%;
-}*/
+div.listedItems {
+	overflow: auto;
+	border-radius: 20px;
+	-moz-border-radius: 20px;
+	-o-border-radius: 20px;
+	background-color: rgba(240, 240, 240, .7);
+	height: 300px;
+}
+
+div.itemHover {
+	height: 40px;
+	background-color: rgba(240,240, 240, .7);
+}
+
+div.itemHover:hover {
+	background-color: rgb(200, 200, 200);
+}
+
+div.marginUp {
+	margin-top: -200px;
+}

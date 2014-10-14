@@ -37,8 +37,6 @@
 ************************************/
 
 body {
-	/*background-color: black;
-	opacity: 0.5;*/
 	background: url('../img/homepage.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -63,12 +61,12 @@ img.iconresize {
 }
 
 span.appname {
-	font-family: lobster, cursive;
+	font-family: lobster, 'lucida calligraphy' cursive;
 	color: white;
 	font-size: 8em;
 	position: relative;
 	top: 50px;
-	left: 50px;
+	left: 20px;
 }
 
 div.quote {
@@ -90,6 +88,7 @@ a.outer {
 	color: white;
 	left: 0;
 	width: 100%;
+	cursor: auto;
 }
 
 a.movedown {
@@ -101,3 +100,8 @@ a.movedown {
 a.movedown:hover {
 	color: black;
 }
+
+/*a.dropdown-toggle {
+	color: #a00;
+}
+*/
