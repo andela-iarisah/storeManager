@@ -1,12 +1,16 @@
+<div class= "logo_name">
+    <img src= "modules/core/img/brand/icon.jpg" class= "iconresize">
+    <span class= "appname_list">The Store Manager</span>
+</div>
 <section data-ng-controller="ItemsController" data-ng-init="findOne()">
-    <div class="page-header">
+    <div class="page-header re-move_edit">
         <h1>Edit Item</h1>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="update(item, req)" novalidate>
             <fieldset>
                  <div class="form-group">
-                    <label class="control-label" for="name">Category</label>
+                    <label class="control-label edit" for="name">Category</label>
                     <div class="controls">
                         <select  class= "itemadd" data-ng-model= "item.category">
                             <option selected>--Select One--</option>
@@ -23,27 +27,27 @@
                             <option>Other Categories</option>
                         </select>
                     </div>
-                    <label class="control-label" for="name">Item Name</label>
+                    <label class="control-label edit" for="name">Item Name</label>
                     <div class="controls">
                         <input type="text" data-ng-model="item.itemName"  id="name" class="form-control" required>
                     </div>
-                    <label class="control-label" for="itemQty">Item Quantity</label>
+                    <label class="control-label edit" for="itemQty">Item Quantity</label>
                     <div class="controls">
                         <input type="text" data-ng-model="item.itemQuantity" id="itemQty" class="form-control" required>
                     </div>
-                    <label class="control-label" for="minQty">Minimum Quantity</label>
+                    <label class="control-label edit" for="minQty">Minimum Quantity</label>
                     <div class="controls">
                         <input type="text" data-ng-model="item.minItemQuantity" id="minQty" class="form-control" required>
                     </div>
-                    <label class="control-label" for="addedQty">Quantity to add</label>
+                    <label class="control-label edit" for="addedQty">Quantity to add</label>
                     <div class="controls">
                         <input type="text" data-ng-model= "newAdd" id="minQty" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Update" class="btn btn-default">
+                    <input type="submit" value="Update" class="btn">
                 </div>
-                <div data-ng-show= "errorMsg">Please type in a valid input!</div>
+                <div data-ng-show= "errorMsg" class= "errorMsg">Please type in a valid input!</div>
                 <div data-ng-show="error" class="text-danger">
                     <strong data-ng-bind="error"></strong>
                 </div>

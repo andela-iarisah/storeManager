@@ -1,26 +1,27 @@
+<div class= "logo_name">
+    <img src= "modules/core/img/brand/icon.jpg" class= "iconresize">
+    <span class= "appname_list">The Store Manager</span>
+</div>
 <section data-ng-controller="ItemsController" data-ng-init="findOne()">
 	<div class="page-header">
 		<h1 data-ng-bind="item.name"></h1>
+		<h1 class= "viewPage">Sell Item</h1>
 	</div>
-	<div class= "flex">
-                <div class= "listitem"><strong>Category: </strong>{{item.category}}</div>
-                <div class= "listitem"><strong>Item Name: </strong>{{item.itemName}}</div>
-                <div class= "listitem"><strong>Quantity of item remaining: </strong>{{item.itemQuantity}}</div>
-                <input type= "text" size= "3" data-ng-model= "itemQty">
-                <input type= "submit" value= "Sold" ng-click= "update(item, req)">
-            </div>
-				<!-- Posted on
-				<span data-ng-bind="item.created | date:'medium'"></span> -->
-				Sold by
-				<span data-ng-bind="item.user.displayName"></span>
-				<div data-ng-show= "errorMsg">Please type in a valid input!</div>
+	<div class= "wrapView">
+        <div class= "listitemView"><strong>Category: </strong>{{item.category}}</div>
+        <div class= "listitemView"><strong>Item Name: </strong>{{item.itemName}}</div>
+        <div class= "listitemView"><strong>Quantity of item remaining: </strong>{{item.itemQuantity}}</div>
+        <input type= "text" size= "3" data-ng-model= "itemQty" class= "midTxt">
+        <input type= "submit" class= "btn midTxt" value= "Sold" ng-click= "update(item, req)">
+    </div>
+			<div data-ng-show= "errorMsg" class= "errorMsg">Please type in a valid input!</div>
 			<h4 class="list-group-item-heading" data-ng-bind="item.name"></h4>
-	<div class="pull-right" data-ng-show="authentication.user._id == item.user._id">
-		<a class="btn btn-primary" href="/#!/items/{{item._id}}/edit">
-			<i class="glyphicon glyphicon-edit"></i>
-		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
-			<i class="glyphicon glyphicon-trash"></i>
-		</a>
+		<div class="pull-right" data-ng-show="authentication.user._id == item.user._id">
+			<a href="/#!/items/{{item._id}}/edit">
+				<button class="btn redBg">Edit Item</button>
+			</a>
+			<a class="btn redBg" data-ng-click="remove();">
+				<button class="btn redBg">Delete Item</button>
+			</a>
 	</div>
 </section>

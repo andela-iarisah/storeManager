@@ -24,7 +24,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$http
 				// If successful we assign the response to the global user model
 				$scope.authentication.user = response;
 
-				// And redirect to the index page
+				// And redirect to the list page
 				$location.path('/items');
 			}).error(function(response) {
 				$scope.error = response.message;

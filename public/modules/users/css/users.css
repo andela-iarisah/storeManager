@@ -33,6 +33,26 @@ div.alignleft {
 		  	SIGNIN BOX
 ************************************/
 
+/* Similar Sign Up Styling */
+
+button.widthUp, button.widthUp_signup {
+	display: block;
+	width: 75%;
+	margin: 0 auto;
+	background-color: #a00;
+	border-radius: 0;
+	color: white;
+}
+div.wrap, div.signup {
+	background-color: rgb(240, 240, 240);
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+	box-shadow: 0 0 10px #a00;
+}
+
+/**/
+
 #username, #password {
 	width: 75%;
 	margin: 0 auto;
@@ -46,23 +66,17 @@ div.alignleft {
 	margin-top: -15px;
 }
 
-button.width {
+button.width, button.width:hover {
 	display: block;
 	width: 75%;
 	margin: 0 auto;
 	border-radius: 0;
-
+	background-color: #040;
+	color: white;
 }
 
-/* Similar Sign Up Design */
-
-button.widthUp, button.widthUp_signup {
-	display: block;
-	width: 75%;
-	margin: 0 auto;
-	background-color: #a00;
-	border-radius: 0;
-	color: white;
+button.width:hover {
+	background-color: #030;
 }
 
 button.widthUp_signup {
@@ -70,7 +84,7 @@ button.widthUp_signup {
 	width: 30%;
 }
 
-button.widthUp_signup:hover {
+button.widthUp_signup:hover, button.widthUp:hover {
 	background-color: #900;
 	color: white;
 }
@@ -78,12 +92,8 @@ button.widthUp_signup:hover {
 div.wrap {
 	height: 400px;
 	width: 300px;
-	background-color: rgb(240, 240, 240);
-	border-radius: 10px;
-	-moz-border-radius: 10px;
-	-o-border-radius: 10px;
-	box-shadow: 0 0 2px black;
 	padding-top: 0;
+	/*margin-top: 30px;*/
 }
 
 a.space {
@@ -95,6 +105,11 @@ a.space {
 
 a.spaceUp {
 	color: white;
+}
+
+a.spaceUp:hover {
+	text-decoration: none;
+	background-color: #900;
 }
 
 div.surround {
@@ -118,7 +133,6 @@ hr {
 	border-color: #ccc;
 	margin-top: 10px;
 	position: relative;
-
 }
 
 hr.fullLength {
@@ -137,12 +151,16 @@ img.icon {
 	padding: 5px;
 }
 
+section.repaint {
+	margin-top: 55px;
+}
+
 /************************************
 		  APPLICATION NAME
 ************************************/
 
 div.logoname {
-	margin-top: -30px;
+	/*margin-top: -10px;*/
 }
 
 /************************************
@@ -150,13 +168,9 @@ div.logoname {
 ************************************/
 
 div.signup {
-	background-color: rgb(240, 240, 240);
 	width: 30%;
 	margin-top: 30px;
 	padding: 10px 30px;
-	border-radius: 10px;
-	-moz-border-radius: 10px;
-	-o-border-radius: 10px;
 	position: relative;
 	right: 50px;
 }
@@ -178,38 +192,66 @@ a.red {
 	color: #a00;
 }
 
+
+
 /************************************
 		  EDIT PROFILE BOX
 ************************************/
 
-div.editProfile {
+/* Similar User Settings Styling */
+
+h3.titleColor, h3.titleColor_change {
+	background-color: #a00;
+	color: white;
+	position: absolute;
+	top: 100px;
+	text-align: center;
+	font-size: 2em;
+}
+
+div.editProfile, div.changePsw {
 	background-color: rgb(240, 240, 240);
-	width: 25%;
-	/*margin: 0 auto;*/
-	padding: 10px 30px;
+	margin-top: 70px;
+	padding: 20px 30px;
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-o-border-radius: 10px;
 	position: relative;
-	right: 50px;
 	box-shadow: 0 0 10px #a00;
 }
 
-div.surroundH3 {
-	/*width: 100%;*/
-	/*margin-top: 20px;*/
-	height: 50px;
-	background-color: green;
+/**/
+div.editProfile {
+	width: 25%;
+	right: 50px;
+	margin-top: -120px;
 }
 
 h3.titleColor {
-	background-color: #a00;
-	color: white;
-	/*margin-top: -1px;*/
 	width: 20%;
+	left: 547px;
 }
 
-button.redBg {
+button.redBg, button.redBg:hover {
 	background-color: #a00;
 	color: white;
+}
+
+button.redBg:hover {
+	background-color: #900;
+}
+
+/************************************
+		 CHANGE PASSWORD BOX
+************************************/
+
+div.changePsw {
+	width: 20%;
+	right: 25px;
+	margin-top: -120px;
+}
+
+h3.titleColor_change{
+	width: 25%;
+	left: 510px;
 }

@@ -42,7 +42,6 @@ var ItemSchema = new Schema({
 	addedQuantity: {
 		type: Number,
 		default: 0,
-		required: 'Please type in a reasonable value >:('
 	},
 	soldQuantity: {
 		type: Number,
@@ -52,6 +51,14 @@ var ItemSchema = new Schema({
 		type: String,
 		default: '',
 		trim: true
+	},
+	modified: {
+		type: Date,
+		default: Date.now
+	},
+	initialItemQuantity: {
+		type: Number,
+		default: 0
 	}
 });
 

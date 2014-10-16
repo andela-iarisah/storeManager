@@ -1,26 +1,37 @@
 <div class= "logo_name">
     <img src= "modules/core/img/brand/icon.jpg" class= "iconresize">
-    <span class= "appname">The Store Manager</span>
+    <span class= "appname_list">The Store Manager</span>
 </div>
 <section data-ng-controller="ItemsController" data-ng-init="find()">
     <div class="page-header marginUp">
         <h1>Items in Stock</h1>    
     </div>
-    <div class= "alignright">
-            <input type= "text" class= "form-control" id= "resize" data-ng-model= "query.$" placeholder= "Search">
-    </div>
-    <div class="listedItems">
-        <a data-ng-repeat="item in items | filter: query" data-ng-href="#!/items/{{item._id}}">
-            <div class= "flex group itemHover">
-                <div class= "listitem pull-left"><strong>Category: </strong>{{item.category}}</div>
-                <div class= "listitem pull-left"><strong>Item Name: </strong>{{item.itemName}}</div>
-                <div class= "listitem pull-left"><strong>Quantity of item remaining: </strong><span class= "colored" data-ng-class= "{colorChange: item.itemQuantity <= item.minItemQuantity}">{{item.itemQuantity}}</span></div>
-                <div class= "listitem pull-left"><strong>Sold on: </strong>{{item.created | date:'dd/MM/yyyy @ h:mma'}}</div>
-            </div>
-            <h4 class="list-group-item-heading" data-ng-bind="item.name"></h4>
-        </a>
-    </div>
+    <div data-ng-if= "items.length > 0">
+        <div class= "alignright">
+                <input type= "text" class= "form-control" id= "resize" data-ng-model= "query.$" placeholder= "Search">
+        </div>
+        <div class="listedItems">
+            <a data-ng-repeat="item in items | filter: query" data-ng-href="#!/items/{{item._id}}">
+                <div class= "flex group itemHover">
+                    <div class= "listitem pull-left"><strong>Category: </strong>{{item.category}}</div>
+                    <div class= "listitem pull-left"><strong>Item Name: </strong>{{item.itemName}}</div>
+                    <div class= "listitem pull-left"><strong>Quantity of item remaining: </strong><span class= "colored" data-ng-class= "{colorChange: item.itemQuantity <= item.minItemQuantity}">{{item.itemQuantity}}</span></div>
+                    <div class= "listitem pull-left"><strong>Sold on: </strong>{{item.created | date:'dd/MM/yyyy @ h:mma'}}</div>
+                </div>
+                <h4 class="list-group-item-heading" data-ng-bind="item.name"></h4>
+            </a>
+        </div>
+        <button type= "button" class= "btn redBg_report">
+            <a href= "/#!/items/dailyReport" target= "_blank">Get Report</a>
+        </button>
+        <button type= "button" class= "btn redBg_report">
+            <a href= "/#!/items/viewLog" target= "_blank">View Logs</a>
+        </button>
+</div>
     <div class="alert alert-warning text-center" data-ng-hide="!items.$resolved || items.length">
-        No Items yet, why don't you <a href="/#!/items/create">create one</a>?
+        No Items on your list
+    </div>
+    <div class="alert alert-warning text-center" data-ng-if="item.query === null">
+        Item not found on your list
     </div>
 </section>

@@ -1,0 +1,33 @@
+<div class= "logo_name">
+    <img src= "modules/core/img/brand/icon.jpg" class= "iconresize">
+    <span class= "appname_list">The Store Manager</span>
+</div>
+<section data-ng-controller="ItemsController" data-ng-init= "find()">
+	<div class= "report">
+		<table>
+			<thead>
+				<th class= "tableAlign">Category</th>
+				<th class= "tableAlign">Item Name</th>
+				<th class= "tableAlign">Initial Item Quantity</th>
+				<th class= "tableAlign">Quantity Added</th>
+				<th class= "tableAlign">Quantity Sold</th>
+				<th class= "tableAlign">Quantity Remaining</th>
+			</thead>
+			<tfoot>
+				<div class= "btnPad">
+					<button class= "btn redBg_report" data-ng-click= "print()">Print</button>
+				</div>
+			</tfoot>
+			<tbody data-ng-show= "item.created" data-ng-repeat= "item in items">
+				<tr>
+					<td class= "tableAlign tablePadding">{{item.category}}</td>
+					<td class= "tableAlign tablePadding">{{item.itemName}}</td>
+					<td class= "tableAlign tablePadding">{{item.initialItemQuantity}}</td>
+					<td class= "tableAlign tablePadding">{{item.addedQuantity}}</td>
+					<td class= "tableAlign tablePadding">{{item.soldQuantity}}</td>
+					<td class= "tableAlign tablePadding">{{item.itemQuantity}}</td>
+				</tr>
+			</tbody>
+		</div>
+</table>
+</section>

@@ -6,6 +6,7 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors'),
 	Item = mongoose.model('Item'),
+	Log = mongoose.model('Log'),
 	_ = require('lodash');
 
 /**
@@ -37,20 +38,35 @@ exports.read = function(req, res) {
  * Update a Item
  */
 exports.update = function(req, res) {
-	console.log('update item api');
-	console.log(req.item);
-	console.log('item update check done');
+	
 	var item = req.item ;
 
 	item = _.extend(item , req.body);
-
+	item.modified = Date.now();
+	
 	item.save(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.jsonp(item);
+			var log = new Log({
+				action: 'sell',
+				quantityAdded: req.body.newAdd,
+				quantitySold: req.body.itemQty
+			});
+			log.item = req.item;
+			log.save(function(err) {
+				if (err){
+					return res.status(400).send({
+						message:errorHandler.getErrorMessage(err)
+					});
+				}
+				else {
+						res.jsonp(item);
+					}
+			});
+			//res.jsonp(item);
 		}
 	});
 };
@@ -106,14 +122,33 @@ exports.hasAuthorization = function(req, res, next) {
 	}
 	next();
 };
-exports.searchItems = function(req, res) { 
-	Item.find().sort('-itemName').populate('user', 'displayName').exec(function(err, items) {
-		if (err) {
-			return res.status(400).send({
+
+function fixDate(i) {
+	i = i.toString();
+	i = i.length===1?'0'+i:i;
+	return i;
+};
+
+exports.reportList = function(req, res) { 
+	
+	var d  = new Date();
+	var today = d.getFullYear() + '-' + fixDate(d.getMonth() + 1) + '-' + fixDate(d.getDate()); 
+	today = new Date(today);
+	var dateexp = new RegExp(today,'i');
+	console.log(today, dateexp,'user');
+	
+	Item.find({modified:{$gt:today},user:req.user}).exec(function(err,items){
+
+		console.log(items);
+		if(err) {			
+			res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
-		} else {
-			res.jsonp(items);
 		}
+		else 
+			return res.jsonp(items);
+
+		
 	});
 };
+

@@ -13,6 +13,14 @@ angular.module('items').config(['$stateProvider',
 			url: '/items/create',
 			templateUrl: 'modules/items/views/create-item.client.view.html'
 		}).
+		state('dailyReport', {
+			url: '/items/dailyReport',
+			templateUrl:'modules/items/views/daily-report.client.view.html'
+		}).
+		state('viewLog', {
+			url: '/items/viewLog',
+			templateUrl: 'modules/items/views/log-report.client.view.html'
+		}).
 		state('viewItem', {
 			url: '/items/:itemId',
 			templateUrl: 'modules/items/views/view-item.client.view.html'
@@ -21,5 +29,6 @@ angular.module('items').config(['$stateProvider',
 			url: '/items/:itemId/edit',
 			templateUrl: 'modules/items/views/edit-item.client.view.html'
 		});
+		
 	}
 ]);

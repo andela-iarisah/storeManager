@@ -6,6 +6,8 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 		$scope.authentication = Authentication;
 		
 		$scope.errorMsg = false;
+
+
 	
 		// Create new Item
 		$scope.create = function() {
@@ -17,8 +19,10 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 				minItemQuantity: this.minQty,
 				addedQuantity: this.addQty,
 				soldQuantity: this.qtySold,
-				q: this.query
+				q: this.query,
+				initialItemQuantity: this.initQty
 			});
+				item.initialItemQuantity = item.itemQuantity;
 
 			if (isNaN($scope.name) && !isNaN($scope.quantity) && !isNaN($scope.minQty)) {
 				// Redirect after save
@@ -55,14 +59,14 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 
 		// Update existing Item
 		$scope.update = function(item, req) {
-			
+					
 			if ($scope.newAdd > 0 || ($scope.itemQty > 0 && $scope.itemQty < item.itemQuantity)) {		
 				item.$update(function() {
 				$location.path('/items');
 				}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 				});
-			
+
 			//To add stock to existing supply
 				if ($scope.newAdd) {
 					var itemResource = new Items ({
@@ -73,8 +77,11 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 						minItemQuantity: this.minQty,
 						addedQuantity: this.addQty,
 						soldQuantity: this.qtySold,
-						q: this.query
+						q: this.query,
+						initialItemQuantity: this.initQty
 					});
+					
+
 					var addedQty = parseInt($scope.newAdd, 10);
 					item.itemQuantity += addedQty;
 					item.addedQuantity += addedQty;
@@ -107,6 +114,11 @@ angular.module('items').controller('ItemsController', ['$scope', '$stateParams',
 			$scope.item = Items.get({ 
 				itemId: $stateParams.itemId
 			});
+		};
+
+		// Print report
+		$scope.print = function() {
+			window.print();
 		};
 	}
 ]);

@@ -1,0 +1,13 @@
+<div class= "logo_name">
+    <img src= "modules/core/img/brand/icon.jpg" class= "iconresize">
+    <span class= "appname_list">The Store Manager</span>
+</div>
+<section data-ng-controller="ItemsController" data-ng-init= "find()">
+	<table>
+		<thead>allow</thead>
+		<tfoot>help</tfoot>
+		<tbody data-ng-repeat= "item in items">
+			<tr><td>{{item.itemName}} from {{item.category}} category was sold by {{item.user.displayName}} on {{item.created | date:'dd/MM/yyyy @ h:mma'}}</td></tr>
+		</tbody>
+	</table>
+</section>
