@@ -12,25 +12,16 @@
 	display: none !important;
 }
 .ng-invalid.ng-dirty{
-    border-color:#FA787E;
+    border-color:#f00;
 }
 .ng-valid.ng-dirty{
-    border-color:#78FA89;
+    border-color:#0f0;
 }
 
 
 /************************************
 		    CUSTOM CSS
 ************************************/
-
-/************************************
-		    HEADER CSS
-************************************/
-
-/*a.insert::before {
-	content: url('../img/brand/icon.jpg');
-	margin-left: -20px;
-}*/
 
 /************************************
 		    HOME PAGE
@@ -47,7 +38,6 @@ div.home {
 	width: 100%;
 	height: 100%;
 	background-color: black;
-	/*padding-bottom: 20px;*/
 	opacity: 0.5;
 	position: absolute;
 	top: -7.5%;
@@ -63,7 +53,7 @@ img.iconresize {
 }
 
 span.appname {
-	font-family: lobster, cursive;
+	font-family:'Quattrocento Sans', 'Open Sans', sans-serif;
 	color: white;
 	font-size: 8em;
 	position: relative;
@@ -75,7 +65,8 @@ div.quote {
 	margin-top: -20px;
 	margin-right: 20px;
 	width: 40%;
-	font-family: arial, sans-serif;
+	font-family: roboto, arial, sans-serif;
+	font-weight: 100;
 	color: white;
 	font-size: 2em;
 	position: relative;
@@ -90,46 +81,13 @@ a.outer {
 	color: white;
 	left: 0;
 	width: 100%;
-	cursor: auto;
+	cursor: default;
 }
 
 a.movedown {
 	position: relative;
 	top: 617px;
 	left: 127px;
-}
-
-/************************************
-		    CUSTOM CSS
-************************************/
-
-/************************************
-		    HEADER CSS
-************************************/
-
-/*a.insert::before {
-	content: url('../img/brand/icon.jpg');
-	margin-left: -20px;
-}*/
-
-/************************************
-		    HOME PAGE
-************************************/
-
-body {
-	background: url('../img/homepage.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
-div.home {
-	width: 100%;
-	height: 100%;
-	background-color: black;
-	opacity: 0.5;
-	position: absolute;
-	top: -7.5%;
-	left: 0;
 }
 
 img.iconresize {
@@ -141,44 +99,12 @@ img.iconresize {
 }
 
 span.appname {
-	font-family: lobster, 'lucida calligraphy' cursive;
+	font-family: 'Quattrocento Sans', 'Open Sans', sans-serif;
 	color: white;
 	font-size: 8em;
 	position: relative;
 	top: 50px;
 	left: 20px;
-}
-
-div.quote {
-	margin-top: -20px;
-	margin-right: 20px;
-	width: 40%;
-	font-family: arial, sans-serif;
-	color: white;
-	font-size: 2em;
-	position: relative;
-	float: right;
-	top: 180px;
-}
-
-a.outer {
-	position: absolute;
-	bottom: 0;
-	background-color: #a00;
-	color: white;
-	left: 0;
-	width: 100%;
-	cursor: default;
-}
-
-a.movedown {
-	position: relative;
-	top: 617px;
-	left: 127px;
-}
-
-a.movedown:hover {
-	color: black;
 }
 
 a.movedown:hover {
