@@ -168,11 +168,22 @@ div.alert {
 
 /* Similar styling */
 
+
 div.re-move, div.re-move_edit {
 	margin-top: -200px;
 }
 
 /**/
+
+div.wrap_add {
+	padding-left: 40px;
+	background-color: rgb(240, 240, 240);
+	width: 350px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+	box-shadow: 0 0 10px #a00;
+}
 
 option.itemadd{
 	font-family: arial, sans-serif;
